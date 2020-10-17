@@ -10,7 +10,8 @@ ENV PORT=8080
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-RUN npm install
+RUN npm install --only=dev
+RUN npm install --only=prod
 # Bundle app source
 COPY . .
 
