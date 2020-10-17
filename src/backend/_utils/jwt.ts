@@ -2,9 +2,7 @@ import jwt from 'jsonwebtoken'
 
 const secret = process.env.JWT_SECRET || 'The quick brown fox jumps over the lazy dog.'
 
-const jwtOptions = {
-  expiresIn: '2h'
-}
+const jwtOptions = {}
 
 export const generateJWT = (id: string): string => {
   return jwt.sign({ id }, secret, jwtOptions)

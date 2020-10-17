@@ -1,0 +1,21 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+type Token {
+  token: String!
+  user: User!
+}
+
+extend type Query {
+  current_user: User
+  user(id: ID!): User
+  users: [User]
+}
+
+extend type Mutation {
+  create_user(name: String!, email: String!, password: String!): Token
+  login_user(email: String!, password: String!): Token
+}

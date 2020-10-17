@@ -11,8 +11,9 @@ import next from 'next'
 import { parse } from 'url'
 
 import { resolvers, typeDefs } from './backend/controllers'
-import { Context } from './_types/context'
+import { Context } from './backend/_types/context'
 import { verifyJWT } from './backend/_utils/jwt'
+import { MikroORM } from '@mikro-orm/core'
 
 const app = express()
 app.set('trust proxy', true)
@@ -51,7 +52,15 @@ if (process.env.NODE_ENV) {
   )
 }
 
-nextJSApp.prepare().then(() => {
+nextJSApp.prepare().then(async () => {
+  const orm = await MikroORM.init({
+    entities: ['./dist/backend/models'],
+    entitiesTs: ['./src/backend/models'],
+    dbName: 'dubhacks',
+    type: 'mongo',
+    clientUrl: process.env.MONGODB_URI
+  })
+
   const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -61,7 +70,9 @@ nextJSApp.prepare().then(() => {
 
       return {
         ip,
-        currentUserId: verifyJWT(headers.accesstoken)?.id
+        currentUserId: verifyJWT(headers.accesstoken)?.id,
+        orm,
+        entityManager: orm.em
       }
     },
     formatError: (error: GraphQLError): GraphQLFormattedError => {

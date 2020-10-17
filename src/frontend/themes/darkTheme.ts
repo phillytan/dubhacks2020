@@ -8,8 +8,8 @@ export default createMuiTheme({
       default: '#212121'
     },
     type: 'dark',
-    primary: { main: '#d22a33' },
-    secondary: { main: '#002365' },
+    primary: { main: '#0a3d62' },
+    secondary: { main: '#079992' },
     error: red
   }
 })
