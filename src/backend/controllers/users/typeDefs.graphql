@@ -14,6 +14,8 @@ extend type Query {
   current_user: User
   user(id: ID!): User
   users: [User]
+  companies: [User]
+  influencers: [User]
 }
 
 extend type Mutation {
