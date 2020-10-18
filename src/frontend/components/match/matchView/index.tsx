@@ -12,6 +12,7 @@ import {
   Chip,
   Collapse,
   Grid,
+  makeStyles,
   TextField,
   Typography
 } from '@material-ui/core'
@@ -20,7 +21,19 @@ import React, { ReactElement, useState } from 'react'
 import query from './query'
 import mutation from './mutation'
 
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  },
+  media: {
+    height: 140
+  }
+})
+
 const MatchView = (): ReactElement => {
+  const classes = useStyles()
   const router = useRouter()
   const matchId = router?.query?.matchId as string
   const matchViewQuery = useQuery(query, {
@@ -62,7 +75,7 @@ const MatchView = (): ReactElement => {
         <br />
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-            <Card>
+            <Card className={classes.root}>
               <CardActionArea onClick={(): void => {
                 matchViewMutation({
                   variables: {
@@ -74,9 +87,7 @@ const MatchView = (): ReactElement => {
               }}>
                 <CardMedia
                   component='img'
-                  alt='Contemplative Reptile'
-                  image='/static/bg.png'
-                  title='Contemplative Reptile'
+                  image={influencerOne?.url}
                 />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>
@@ -99,7 +110,7 @@ const MatchView = (): ReactElement => {
             </Card>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Card>
+            <Card className={classes.root}>
               <CardActionArea onClick={(): void => {
                 matchViewMutation({
                   variables: {
@@ -111,9 +122,7 @@ const MatchView = (): ReactElement => {
               }}>
                 <CardMedia
                   component='img'
-                  alt='Contemplative Reptile'
-                  image='/static/bg.png'
-                  title='Contemplative Reptile'
+                  image={influencerTwo?.url}
                 />
                 <CardContent>
                   <Typography gutterBottom variant='h5' component='h2'>

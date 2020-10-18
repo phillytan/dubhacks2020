@@ -7,6 +7,7 @@ export default gql`
       id
       name
       description
+      url
       keywords {
         keyword
       }
@@ -15,6 +16,7 @@ export default gql`
       id
       name
       description
+      url
       keywords {
         keyword
       }

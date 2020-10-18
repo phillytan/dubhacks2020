@@ -14,6 +14,6 @@ export class Keyword extends BaseEntity {
   // When I mean user I actually mean the influencer
   constructor(keyword: string) {
     super()
-    this.keyword = keyword
+    this.keyword = keyword.trim().toLowerCase()
   }
 }
