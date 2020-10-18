@@ -22,4 +22,5 @@ extend type Mutation {
   create_user(name: String!, email: String!, password: String!): Token
   login_user(email: String!, password: String!): Token
   add_to_favorite(email: String!): User
+  next_match(): User[]
 }

@@ -10,7 +10,7 @@ export default async (
   // Requires the influrencer email
   const compUser: User = await context.entityManager.findOne(User, { id: context.currentUserId })
   const user: User = await context.entityManager.findOne(User, { name: args.email })
-  compUser.users.add(user)
+  compUser.staredUsers.add(user)
   await context.entityManager.persistAndFlush(compUser)
   return {
     compUser
