@@ -1,10 +1,9 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  favorite {
-    add_to_favorite: user {
-      id
-      name
+  mutation($influencerId: ID!) {
+    add_to_favorite(influencerId: $influencerId) {
+      test
     }
   }
 `
