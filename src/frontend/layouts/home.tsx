@@ -10,7 +10,8 @@ const useStyles = makeStyles((theme) => ({
     top: 0,
     bottom: 0,
     position: 'fixed',
-    backgroundImage: `linear-gradient(${theme.palette.primary.light}, ${theme.palette.primary.dark})`,
+    backgroundImage: 'url(/static/bg.png)',
+    // backgroundImage: `linear-gradient(${theme.palette.primary.light}, ${theme.palette.primary.dark})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
@@ -42,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(),
     paddingRight: theme.spacing(),
     margin: 'auto'
+  },
+  photoCredit: {
+    color: 'white',
+    textAlign: 'center'
   }
 }))
 
@@ -53,11 +58,15 @@ const home = (Page: FunctionComponent) => (): FunctionComponent | NextPage | Rea
       <div className={classes.background} />
       <div className={classes.root}>
         <div>
+          <img alt={'Teepot'} src={'/static/logo.png'} className={classes.logo} />
           <Typography variant={'h4'} align={'center'} className={classes.tagline}>
             {'Teepot'}
           </Typography>
           <div className={classes.content}>
             <Page />
+            <p className={classes.photoCredit}>
+              <span>Original photo by <a className={classes.photoCredit} href="https://unsplash.com/@ryoji__iwata?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ryoji Iwata</a> on <a className={classes.photoCredit} href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+            </p>
           </div>
         </div>
       </div>
