@@ -14,9 +14,14 @@ extend type Query {
   current_user: User
   user(id: ID!): User
   users: [User]
+  companies: [User]
+  influencers: [User]
 }
 
 extend type Mutation {
   create_user(name: String!, email: String!, password: String!): Token
   login_user(email: String!, password: String!): Token
+  add_to_favorite(email: String!): User
+  next_match: [User]
+  pick_winner(emailFirst: String!, emailSecond: String!, emailWinner: String!): User
 }

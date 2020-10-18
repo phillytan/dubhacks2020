@@ -1,4 +1,4 @@
-import { Entity, Enum, ManyToMany, Property, Unique, Collection } from '@mikro-orm/core'
+import { Entity, Enum, ManyToMany, Property, Unique, Collection, OneToMany } from '@mikro-orm/core'
 import { BaseEntity } from './BaseEntity'
 import bcrypt from 'bcrypt'
 
@@ -22,6 +22,15 @@ export class User extends BaseEntity {
   @Enum()
   type: UserType
 
+  @Property()
+  elo: number
+
+  @ManyToMany(() => User)
+  matched = new Collection<User>(this)
+
+  @ManyToMany(() => User)
+  staredUsers = new Collection<User>(this)
+
   // When I mean user I actually mean the influencer
   constructor(name: string, email: string, password: string, type: UserType = UserType.COMPANY) {
     super()
@@ -29,6 +38,7 @@ export class User extends BaseEntity {
     this.email = email
     this.password = bcrypt.hashSync(password, 10)
     this.type = type
+    this.elo = 1000
   }
 
   verifyPassword(password: string): boolean {
