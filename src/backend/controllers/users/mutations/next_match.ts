@@ -1,7 +1,7 @@
 import { User } from '../../../models/User'
 import { Context } from '../../../_types/context'
 
-export default async (_root: undefined, _args: {}, context: Context): Promise<User[]> => {
+export default async (_root: undefined, _args: {}, context: Context): Promise<{ infOne: User; infTwo: User }> => {
   const company: User = await context.entityManager.findOne(User, { id: context.currentUserId })
   const influencers: User[] = await context.entityManager.find(User, { type: 'influencer' })
   const list: User[] = []
@@ -20,5 +20,5 @@ export default async (_root: undefined, _args: {}, context: Context): Promise<Us
     company.matched.add(list[val])
     await context.entityManager.persistAndFlush(company)
   }
-  return res
+  return { infOne: res[0], infTwo: res[1] }
 }
