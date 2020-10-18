@@ -23,4 +23,5 @@ extend type Mutation {
   login_user(email: String!, password: String!): Token
   add_to_favorite(email: String!): User
   next_match: [User]
+  pick_winner(emailFirst: String!, emailSecond: String!, emailWinner: String!): User
 }

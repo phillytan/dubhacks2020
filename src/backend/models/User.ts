@@ -38,6 +38,7 @@ export class User extends BaseEntity {
     this.email = email
     this.password = bcrypt.hashSync(password, 10)
     this.type = type
+    this.elo = 1000
   }
 
   verifyPassword(password: string): boolean {
