@@ -22,9 +22,11 @@ type MockType {
 
 extend type Query {
   next_influencers(roundId: ID!): Match
+  starred_influencers: [Influencer]
 }
 
 extend type Mutation {
   start_match(keywordIds: [ID]!): Round
   score_match(roundId: ID!, winning: ID!, losing: ID!): MockType
+  score_match(influencerId: ID!): MockType
 }

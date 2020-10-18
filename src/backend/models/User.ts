@@ -1,6 +1,7 @@
 import { Entity, Enum, ManyToMany, Property, Unique, Collection, OneToMany } from '@mikro-orm/core'
 import { BaseEntity } from './BaseEntity'
 import bcrypt from 'bcrypt'
+import { Influencer } from './Influencer'
 
 export enum UserType {
   COMPANY = 'company',
@@ -25,8 +26,8 @@ export class User extends BaseEntity {
   @ManyToMany(() => User)
   matched = new Collection<User>(this)
 
-  @ManyToMany(() => User)
-  staredUsers = new Collection<User>(this)
+  @ManyToMany(() => Influencer)
+  starredInfluencers = new Collection<Influencer>(this)
 
   // When I mean user I actually mean the influencer
   constructor(name: string, email: string, password: string, type: UserType = UserType.COMPANY) {
