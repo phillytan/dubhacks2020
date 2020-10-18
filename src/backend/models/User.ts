@@ -22,9 +22,6 @@ export class User extends BaseEntity {
   @Enum()
   type: UserType
 
-  @ManyToMany(() => User)
-  users = new Collection<User>(this)
-
   // When I mean user I actually mean the influencer
   constructor(name: string, email: string, password: string, type: UserType = UserType.COMPANY) {
     super()
