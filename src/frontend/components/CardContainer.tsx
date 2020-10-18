@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     borderTop: `${theme.spacing()}px solid #9a0026`
   },
   content: {
-    overflow: 'scroll'
+    overflow: 'hidden'
   }
 }))
 
