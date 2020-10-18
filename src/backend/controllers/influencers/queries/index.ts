@@ -1,5 +1,5 @@
-import filter_influencers from './filter_influencers'
+import next_influencers from './next_influencers'
 
 export default {
-  filter_influencers
+  next_influencers
 }

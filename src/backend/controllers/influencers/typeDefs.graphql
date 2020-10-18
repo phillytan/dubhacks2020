@@ -5,9 +5,25 @@ type Influencer {
   keywords: [Keyword]
 }
 
-extend type Query {
-  filter_influencers(keywordIds: [ID]!): [Influencer]
+type Round {
+  id: ID!
+  influencers: [Influencer]
 }
 
-# extend type Mutation {
-# }
+type Match {
+  influencerOne: Influencer
+  influencerTwo: Influencer
+}
+
+type MockType {
+  test: String
+}
+
+extend type Query {
+  next_influencers(roundId: ID!): Match
+}
+
+extend type Mutation {
+  start_match(keywordIds: [ID]!): Round
+  score_match(roundId: ID!, winning: ID!, losing: ID!): MockType
+}

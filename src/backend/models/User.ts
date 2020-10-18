@@ -22,9 +22,6 @@ export class User extends BaseEntity {
   @Enum()
   type: UserType
 
-  @Property()
-  elo: number
-
   @ManyToMany(() => User)
   matched = new Collection<User>(this)
 
@@ -38,7 +35,6 @@ export class User extends BaseEntity {
     this.email = email
     this.password = bcrypt.hashSync(password, 10)
     this.type = type
-    this.elo = 1000
   }
 
   verifyPassword(password: string): boolean {
