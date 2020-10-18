@@ -57,16 +57,7 @@ const MatchView = (): ReactElement => {
     }
   })
 
-  // const [addFavoriteMutation, { loading }] = useMutation(favorite, {
-  //   onCompleted: (data): void => {
-  //     globalAny.setNotification('success', 'Recorded')
-  //     window.location.reload()
-  //   },
-  //   onError: (error): void => {
-  //     globalAny.setNotification('error', error.graphQLErrors[0].message)
-  //     router.push('/match')
-  //   }
-  // })
+  const addFavoriteMutation = useMutation(favorite)
 
   const {
     influencerOne,
@@ -115,7 +106,9 @@ const MatchView = (): ReactElement => {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary">
+                <Button size="small" color="primary" onClick={(): void => {
+                  addFavoriteMutation()
+                }}>
                   Favorite this influencer
                 </Button>
               </CardActions>
