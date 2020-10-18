@@ -3,25 +3,12 @@ import { NextPage } from 'next'
 import { Typography } from '@material-ui/core'
 import React, { ReactElement } from 'react'
 import authenticated from 'frontend/layouts/authenticated'
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    maxWidth: theme.spacing(64),
-    margin: 'auto'
-  },
-  padding: {
-    padding: theme.spacing(2)
-  }
-}))
+import Browse from 'frontend/components/match/browse'
 
 const Home: NextPage = (): ReactElement => {
-  const classes = useStyles()
-
   return (
     <>
-      <Typography color={'textPrimary'} variant={'h4'} className={classes.padding}>
-        {'Welcome to Teepot!'}
-      </Typography>
+      <Browse />
     </>
   )
 }

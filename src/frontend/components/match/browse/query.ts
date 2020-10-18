@@ -2,10 +2,14 @@ import gql from 'graphql-tag'
 
 export default gql`
   query {
-    stared_influencers: users {
+    starred_influencers {
       id
       name
-      email
+      description
+      url
+      keywords {
+        keyword
+      }
     }
   }
 `
