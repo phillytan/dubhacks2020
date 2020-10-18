@@ -1,0 +1,12 @@
+type Keyword {
+  id: ID!
+  keyword: String
+}
+
+extend type Query {
+  keywords: [Keyword]
+}
+
+extend type Mutation {
+  create_keyword(keyword: String!): Keyword
+}

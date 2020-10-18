@@ -39,9 +39,6 @@ const Content = ({ user }: { user: User }): ReactElement => {
         <ListItem
           button
           selected={router.pathname.includes('/account')}
-          onClick={(): void => {
-            router.push('/account')
-          }}
         >
           <ListItemAvatar>
             <Avatar className={classes.avatar} variant={'rounded'} src={`https://www.gravatar.com/avatar/${md5(user?.email?.toLowerCase()?.trim())}?s=128&d=404`}>
@@ -60,18 +57,18 @@ const Content = ({ user }: { user: User }): ReactElement => {
         <ListItemIcon>
           <AppsIcon />
         </ListItemIcon>
-        <ListItemText primary={'Browse'} secondary={'Insert Description here'} />
+        <ListItemText primary={'Browse'} secondary={'Browse current selection'} />
       </ListItem>
       <ListItem
         button
         onClick={(): void => {
-          router.push('/')
+          router.push('/match')
         }}
       >
         <ListItemIcon>
           <ThumbsUpDownIcon />
         </ListItemIcon>
-        <ListItemText primary={'Match'} secondary={'Insert Description here'} />
+        <ListItemText primary={'Match'} secondary={'Find more influencers'} />
       </ListItem>
       <ListItem
         button

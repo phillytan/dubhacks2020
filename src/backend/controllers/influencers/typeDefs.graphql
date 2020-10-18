@@ -1,0 +1,13 @@
+type Influencer {
+  id: ID!
+  name: String
+  description: String
+  keywords: [Keyword]
+}
+
+extend type Query {
+  filter_influencers(keywordIds: [ID]!): [Influencer]
+}
+
+# extend type Mutation {
+# }
