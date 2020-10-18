@@ -20,7 +20,7 @@ const Home: NextPage = (): ReactElement => {
   return (
     <>
       <Typography color={'textPrimary'} variant={'h4'} className={classes.padding}>
-        {'Hello, World!'}
+        {'Welcome to Teepot!'}
       </Typography>
     </>
   )

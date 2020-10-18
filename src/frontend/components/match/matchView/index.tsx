@@ -20,6 +20,7 @@ import { useRouter } from 'next/router'
 import React, { ReactElement, useState } from 'react'
 import query from './query'
 import mutation from './mutation'
+import favorite from './favorite'
 
 const useStyles = makeStyles({
   root: {
@@ -55,6 +56,17 @@ const MatchView = (): ReactElement => {
       router.push('/match')
     }
   })
+
+  // const [addFavoriteMutation, { loading }] = useMutation(favorite, {
+  //   onCompleted: (data): void => {
+  //     globalAny.setNotification('success', 'Recorded')
+  //     window.location.reload()
+  //   },
+  //   onError: (error): void => {
+  //     globalAny.setNotification('error', error.graphQLErrors[0].message)
+  //     router.push('/match')
+  //   }
+  // })
 
   const {
     influencerOne,
