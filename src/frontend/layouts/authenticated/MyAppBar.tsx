@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const MyAppBar = ({ onOpen }: { onOpen: ReactEventHandler }): ReactElement => {
+const MyAppBar = ({ onOpen, permanent }: { onOpen: ReactEventHandler; permanent: boolean }): ReactElement => {
   const classes = useStyles({})
   const router = useRouter()
   const theme = useTheme()
@@ -41,16 +41,18 @@ const MyAppBar = ({ onOpen }: { onOpen: ReactEventHandler }): ReactElement => {
       color={globalAny.darkTheme ? 'default' : 'primary'}
     >
       <Toolbar>
-        <IconButton color={'inherit'} onClick={onOpen} className={classes.menuButton}>
-          <MenuIcon />
-        </IconButton>
+        {!permanent && (
+          <IconButton color={'inherit'} onClick={onOpen} className={classes.menuButton}>
+            <MenuIcon />
+          </IconButton>
+        )}
         <ButtonBase
           onClick={(): void => {
             router.push('/')
           }}
         >
           <Typography variant={'h6'} className={classes.title}>
-            {'App Name'}
+            {'Teepot'}
           </Typography>
         </ButtonBase>
         <div className={classes.grow} />

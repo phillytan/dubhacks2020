@@ -114,6 +114,7 @@ const authenticated = (Page: FunctionComponent, options?: Options) => ():
         onOpen={(): void => {
           setOpen(true)
         }}
+        permanent={!options?.wide && !options?.narrow && breakpoint}
       />
       <div className={widthClass}>
         <div className={options?.wide || options?.narrow ? classes.contentHideDrawer : classes.content}>
@@ -125,7 +126,7 @@ const authenticated = (Page: FunctionComponent, options?: Options) => ():
         onClose={(): void => {
           setOpen(false)
         }}
-        // permanent={!options?.wide && !options?.narrow && breakpoint}
+        permanent={!options?.wide && !options?.narrow && breakpoint}
         user={user}
       />
     </>

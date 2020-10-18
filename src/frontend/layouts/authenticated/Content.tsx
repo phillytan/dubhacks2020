@@ -12,9 +12,10 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
+import ThumbsUpDownIcon from '@material-ui/icons/ThumbsUpDownTwoTone'
+import AppsIcon from '@material-ui/icons/AppsTwoTone'
 
-import LockIcon from '@material-ui/icons/Lock'
-import HomeIcon from '@material-ui/icons/Home'
+import LockIcon from '@material-ui/icons/LockTwoTone'
 import Avatar from '@material-ui/core/Avatar'
 import md5 from 'js-md5'
 
@@ -57,9 +58,20 @@ const Content = ({ user }: { user: User }): ReactElement => {
         }}
       >
         <ListItemIcon>
-          <HomeIcon />
+          <AppsIcon />
         </ListItemIcon>
-        <ListItemText primary={'Home'} />
+        <ListItemText primary={'Browse'} secondary={'Insert Description here'} />
+      </ListItem>
+      <ListItem
+        button
+        onClick={(): void => {
+          router.push('/')
+        }}
+      >
+        <ListItemIcon>
+          <ThumbsUpDownIcon />
+        </ListItemIcon>
+        <ListItemText primary={'Match'} secondary={'Insert Description here'} />
       </ListItem>
       <ListItem
         button

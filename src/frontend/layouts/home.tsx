@@ -54,7 +54,7 @@ const home = (Page: FunctionComponent) => (): FunctionComponent | NextPage | Rea
       <div className={classes.root}>
         <div>
           <Typography variant={'h4'} align={'center'} className={classes.tagline}>
-            {'App Name'}
+            {'Teepot'}
           </Typography>
           <div className={classes.content}>
             <Page />
