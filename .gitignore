@@ -111,3 +111,6 @@ dist
 .DS_Store
 
 cypress/
+
+# no figma notes :(
+figma-notes.txt

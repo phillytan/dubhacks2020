@@ -3,7 +3,7 @@ import { BaseEntity } from './BaseEntity'
 import bcrypt from 'bcrypt'
 
 @Entity()
-export class User extends BaseEntity {
+export class Company extends BaseEntity {
   @Property()
   name: string
 
@@ -14,7 +14,6 @@ export class User extends BaseEntity {
   @Property()
   password: string
 
-  // When I mean user I actually mean the influencer
   constructor(name: string, email: string, password: string) {
     super()
     this.name = name

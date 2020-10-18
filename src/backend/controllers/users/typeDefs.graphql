@@ -4,9 +4,20 @@ type User {
   email: String!
 }
 
+type Company {
+  id: ID!
+  name: String!
+  email: String!
+}
+
 type Token {
   token: String!
   user: User!
+}
+
+type CompanyToken {
+  token: String!
+  user: Company!
 }
 
 extend type Query {
@@ -18,4 +29,6 @@ extend type Query {
 extend type Mutation {
   create_user(name: String!, email: String!, password: String!): Token
   login_user(email: String!, password: String!): Token
+  create_company(name: String!, email: String!, password: String!): CompanyToken
+  login_company(email: String!, password: String!): CompanyToken
 }
