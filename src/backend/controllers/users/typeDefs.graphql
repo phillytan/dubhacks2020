@@ -10,10 +10,16 @@ type Token {
   user: User!
 }
 
+type Keyword {
+  id: ID!
+  keyword: String
+}
+
 extend type Query {
   current_user: User
   user(id: ID!): User
   users: [User]
+  filter_influencers(ids: [ID]!): [Influencer]
 }
 
 extend type Mutation {
