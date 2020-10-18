@@ -2,6 +2,7 @@ import { Collection, Entity, ManyToMany, OneToMany, Property } from '@mikro-orm/
 import { BaseEntity } from './BaseEntity'
 import { InfluencerRating } from './InfluencerRating'
 import { Keyword } from './Keyword'
+import { User } from './User'
 
 @Entity()
 export class Influencer extends BaseEntity {
@@ -19,6 +20,9 @@ export class Influencer extends BaseEntity {
 
   @OneToMany(() => InfluencerRating, ir => ir.influencer)
   influencerRatings = new Collection<InfluencerRating>(this);
+
+  @ManyToMany(() => User, u => u.starredInfluencers)
+  favoritedBy = new Collection<User>(this)
 
   constructor(name: string, description: string, url: string) {
     super()

@@ -100,7 +100,7 @@ const MatchView = (): ReactElement => {
                     {influencerOne?.description}
                   </Typography>
                   <br />
-                  {influencerOne?.keywords?.map(keyword => (
+                  {influencerOne?.keywords?.map((keyword: any): ReactElement => (
                     <Chip key={keyword?.keyword} label={keyword?.keyword} />
                   ))}
                 </CardContent>
@@ -137,7 +137,7 @@ const MatchView = (): ReactElement => {
                     {influencerTwo?.description}
                   </Typography>
                   <br />
-                  {influencerTwo?.keywords?.map(keyword => (
+                  {influencerTwo?.keywords?.map((keyword: any): ReactElement => (
                     <Chip key={keyword?.keyword} label={keyword?.keyword} />
                   ))}
                 </CardContent>

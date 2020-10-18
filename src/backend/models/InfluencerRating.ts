@@ -21,9 +21,6 @@ export class InfluencerRating extends BaseEntity {
   @Property()
   elo: number
 
-  @ManyToMany(() => User, u => u.starredInfluencers)
-  favoritedBy = new Collection<User>(this)
-
   constructor(influencer: Influencer, elo = 100) {
     super()
     this.influencer = influencer

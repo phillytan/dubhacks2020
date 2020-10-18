@@ -28,5 +28,5 @@ extend type Query {
 extend type Mutation {
   start_match(keywordIds: [ID]!): Round
   score_match(roundId: ID!, winning: ID!, losing: ID!): MockType
-  score_match(influencerId: ID!): MockType
+  add_to_favorite(influencerId: ID!): MockType
 }
